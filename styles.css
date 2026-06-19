@@ -1,36 +1,35 @@
 /* ==========================================================================
    NOVA Signature Auto Detailing — styles.css
-   "Detailing studio at night" — deep night-slate ground, teal depth,
-   chrome-blue highlights, coral reserved strictly for booking actions.
+   BRANCH: theme-light — "White-glove studio" light variant
    ========================================================================== */
 
 /* ----------------------------- Tokens ----------------------------------- */
 :root {
   /* Surfaces */
-  --bg:        #0C1420;   /* night-slate ground */
-  --bg-2:      #0e1a28;   /* raised panel */
-  --bg-3:      #122236;   /* card */
-  --bg-card:   rgba(255,255,255,0.025);
+  --bg:        #F5F7FA;   /* pearl white studio */
+  --bg-2:      #ECEEF4;   /* raised panel */
+  --bg-3:      #FFFFFF;   /* card */
+  --bg-card:   rgba(0,0,0,0.03);
 
   /* Ink */
-  --text:      #ffffff;
-  --muted:     rgba(231,242,247,0.66);
-  --dim:       rgba(231,242,247,0.42);
+  --text:      #0C1420;
+  --muted:     rgba(12,20,32,0.58);
+  --dim:       rgba(12,20,32,0.36);
 
   /* Brand */
-  --teal:        #017D91;  /* deep teal */
-  --teal-bright: #19b6cf;  /* lifted teal for glows/gradients */
-  --chrome:      #8ACEE0;  /* polished chrome-blue */
-  --coral:       #FF4A56;  /* CTA only */
+  --teal:        #017D91;
+  --teal-bright: #19b6cf;
+  --chrome:      #0090A8;  /* darkened for light-bg contrast */
+  --coral:       #FF4A56;
   --coral-hi:    #ff6973;
 
   /* Lines */
-  --border:     rgba(138,206,224,0.13);
-  --border-str: rgba(138,206,224,0.28);
+  --border:     rgba(1,125,145,0.15);
+  --border-str: rgba(1,125,145,0.3);
 
   /* Gradients */
-  --grad-accent: linear-gradient(115deg, var(--teal) 0%, var(--teal-bright) 55%, var(--chrome) 100%);
-  --grad-text:   linear-gradient(100deg, #cfeef6 0%, var(--chrome) 45%, var(--teal-bright) 100%);
+  --grad-accent: linear-gradient(115deg, var(--teal) 0%, var(--teal-bright) 55%, #5cc8de 100%);
+  --grad-text:   linear-gradient(100deg, #014d5c 0%, var(--teal) 45%, var(--teal-bright) 100%);
 
   /* Type */
   --display: "Clash Display", "Satoshi", system-ui, sans-serif;
@@ -47,7 +46,7 @@
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
   --dur: 0.7s;
 
-  color-scheme: dark;
+  color-scheme: light;
 }
 
 /* ----------------------------- Reset ------------------------------------ */
@@ -182,7 +181,7 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
   border-bottom: 1px solid transparent;
 }
 .nav.is-scrolled {
-  background: rgba(10,17,28,0.72);
+  background: rgba(245,247,250,0.86);
   backdrop-filter: blur(16px) saturate(140%);
   border-bottom-color: var(--border);
 }
@@ -207,7 +206,7 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
   content: ""; position: absolute; left: 0; bottom: -6px; height: 2px; width: 0;
   background: var(--grad-accent); transition: width 0.3s var(--ease);
 }
-.nav__links a:hover { color: #fff; }
+.nav__links a:hover { color: var(--teal); }
 .nav__links a:hover::after { width: 100%; }
 
 .nav__actions { display: flex; align-items: center; gap: 1rem; }
@@ -215,14 +214,14 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
 .nav__phone:hover { color: var(--chrome); }
 
 .nav__toggle { display: none; flex-direction: column; gap: 5px; padding: 8px; }
-.nav__toggle span { width: 24px; height: 2px; background: #fff; border-radius: 2px; transition: transform 0.3s var(--ease), opacity 0.3s; }
+.nav__toggle span { width: 24px; height: 2px; background: var(--text); border-radius: 2px; transition: transform 0.3s var(--ease), opacity 0.3s; }
 .nav__toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
 .nav__toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
 .nav__toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
 .mobile-menu {
   display: flex; flex-direction: column; gap: 0.3rem; padding: 1rem var(--gutter) 1.6rem;
-  background: rgba(10,17,28,0.96); backdrop-filter: blur(16px);
+  background: rgba(245,247,250,0.97); backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--border);
 }
 .mobile-menu[hidden] { display: none; }
@@ -290,7 +289,7 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
     radial-gradient(80% 60% at 50% 30%, rgba(25,182,207,0.22), transparent 70%),
     linear-gradient(180deg, var(--bg-3), var(--bg));
   border: 1px solid var(--border-str);
-  box-shadow: 0 40px 80px -30px rgba(0,0,0,0.8), inset 0 1px 0 rgba(138,206,224,0.15);
+  box-shadow: 0 24px 60px -20px rgba(0,0,0,0.18), inset 0 1px 0 rgba(1,125,145,0.12);
   overflow: hidden;
   transform: rotateY(-7deg) rotateX(3deg);
   transition: transform 0.6s var(--ease);
@@ -353,7 +352,7 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
   border: 1px solid var(--border);
   transition: transform 0.4s var(--ease), border-color 0.4s var(--ease), box-shadow 0.4s var(--ease);
 }
-.pkg:hover { transform: translateY(-6px); border-color: var(--border-str); box-shadow: 0 30px 60px -30px rgba(0,0,0,0.7); }
+.pkg:hover { transform: translateY(-6px); border-color: var(--border-str); box-shadow: 0 30px 60px -30px rgba(0,0,0,0.14); }
 .pkg--featured {
   background: linear-gradient(180deg, rgba(1,125,145,0.16), transparent 60%), var(--bg-3);
   border-color: var(--border-str);
@@ -377,7 +376,7 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
   border-left: 2px solid var(--teal-bright); border-bottom: 2px solid var(--teal-bright);
   transform: rotate(-45deg);
 }
-.pkg__list li strong { color: #fff; }
+.pkg__list li strong { color: var(--text); }
 .pkg-note { text-align: center; margin-top: 2rem; color: var(--dim); font-size: 0.78rem; }
 
 /* ============================== PROCESS =============================== */
@@ -408,7 +407,7 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
 .ba { max-width: 920px; margin: 0 auto; }
 .ba__stage {
   position: relative; aspect-ratio: 16 / 9; border-radius: var(--radius); overflow: hidden;
-  border: 1px solid var(--border-str); box-shadow: 0 40px 80px -36px rgba(0,0,0,0.8);
+  border: 1px solid var(--border-str); box-shadow: 0 24px 60px -20px rgba(0,0,0,0.16);
   user-select: none; touch-action: pan-y; cursor: ew-resize;
 }
 .ba__img { position: absolute; inset: 0; background-size: cover; background-position: center; }
@@ -444,9 +443,9 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
 .shot:hover .shot__img { transform: scale(1.06); }
 .shot figcaption { font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); padding: 0.7rem 0.9rem; background: var(--bg-2); }
 .shot__img--1 { background-image: url("Resources/after-ext-1.png"); background-size: cover; background-position: center; }
-.shot__img--2 { background: radial-gradient(60% 80% at 50% 20%, rgba(138,206,224,0.35), transparent), linear-gradient(135deg, #1a2230, #0a1726); }
+.shot__img--2 { background: radial-gradient(60% 80% at 50% 20%, rgba(1,125,145,0.18), transparent), linear-gradient(135deg, #cce8f0, #e4f3f8); }
 .shot__img--3 { background-image: url("Resources/car being waxed.jpg"); background-size: cover; background-position: center 30%; }
-.shot__img--4 { background: radial-gradient(60% 80% at 50% 20%, rgba(255,74,86,0.22), transparent), linear-gradient(135deg, #141c28, #0a1726); }
+.shot__img--4 { background: radial-gradient(60% 80% at 50% 20%, rgba(255,74,86,0.1), transparent), linear-gradient(135deg, #f5e8e8, #faf0f0); }
 
 /* ============================== ADD-ONS =============================== */
 .addons { background: var(--bg-2); border-block: 1px solid var(--border); }
@@ -469,7 +468,7 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
   content: ""; position: absolute; left: 0; top: 0.55em; width: 12px; height: 12px; border-radius: 50%;
   background: radial-gradient(circle at 30% 30%, var(--chrome), var(--teal)); box-shadow: 0 0 10px rgba(25,182,207,0.5);
 }
-.why__list strong { color: #fff; }
+.why__list strong { color: var(--text); }
 
 .founder { position: relative; }
 .founder__photo {
